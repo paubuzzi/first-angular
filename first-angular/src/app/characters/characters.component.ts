@@ -18,10 +18,17 @@ export class CharactersComponent {
   constructor(private apiService: ApiService) { }
 
   seeCharacters(): void {
-    this.apiService.getCharacters().subscribe((data: CharacterApiResponse) => {
+    this.apiService.getCharacters().subscribe({
+      next: (data: CharacterApiResponse) => {
       this.characters = data.results.slice(0, 15);
       this.showCharacters = true;
-    });
+      }
+    }),
+    (error: any) => {
+      console.error('error fetching characters:', error);
+      alert('error fetching characters');
+    }
+    ;
 
   }
   hideCharacters(): void {
