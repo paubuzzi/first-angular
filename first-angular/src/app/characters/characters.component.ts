@@ -4,6 +4,12 @@ import { ApiService } from '../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
+interface Character {
+  id: number;
+  name: string;
+  image: string;
+}
+
 @Component({
   selector: 'app-characters',
   standalone: true,
@@ -12,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent {
-[x: string]: any;
-  characters: any[] = [];
+  characters: Character[] = [];
   showCharacters = false;
 
   constructor(private apiService: ApiService) { }
