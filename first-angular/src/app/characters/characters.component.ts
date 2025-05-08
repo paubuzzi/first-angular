@@ -2,13 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
-
-
-interface Character {
-  id: number;
-  name: string;
-  image: string;
-}
+import { Character, CharacterApiResponse } from '../models/character.model';
 
 @Component({
   selector: 'app-characters',
@@ -24,7 +18,7 @@ export class CharactersComponent {
   constructor(private apiService: ApiService) { }
 
   seeCharacters(): void {
-    this.apiService.getCharacters().subscribe((data: any) => {
+    this.apiService.getCharacters().subscribe((data: CharacterApiResponse) => {
       this.characters = data.results.slice(0, 15);
       this.showCharacters = true;
     });
