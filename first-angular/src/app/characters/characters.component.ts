@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-characters',
   standalone: true,
   imports: [CommonModule, HttpClientModule],
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.css']
 })
-export class UsersComponent {
+export class CharactersComponent {
 [x: string]: any;
   characters: any[] = [];
   showCharacters = false;
