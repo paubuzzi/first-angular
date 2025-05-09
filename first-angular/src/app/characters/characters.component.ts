@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Character, CharacterApiResponse } from '../models/character.model';
+import { Character, CharacterApiResponse, ApiError } from '../models/character.model';
 
 @Component({
   selector: 'app-characters',
@@ -24,7 +24,7 @@ export class CharactersComponent {
       this.showCharacters = true;
       }
     }),
-    (error: any) => {
+    (error: ApiError) => {
       console.error('error fetching characters:', error);
       alert('error fetching characters');
     }

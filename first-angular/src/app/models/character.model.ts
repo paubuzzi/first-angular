@@ -13,3 +13,9 @@ export interface CharacterApiResponse {
   };
   results: Character[];
 }
+
+export interface ApiError {
+  status: number;
+  message: string;
+  error: string;
+}
